@@ -27,7 +27,7 @@ class DepthEstimator(nn.Module):
     Depth Estimation Module - Simplified implementation with residual connections.
     """
     def __init__(self, input_channels=3, depth_channels=1):
-        super(DepthAnythingModule, self).__init__()
+        super(DepthEstimator, self).__init__()
         
         # Encoder - Extract multi-scale features (with residual blocks)
         self.encoder = nn.ModuleList([
@@ -216,7 +216,7 @@ class DGFNet(nn.Module):
         super(DGFNet, self).__init__()
         
         # Stage 1: Depth Estimation
-        self.depth_estimator = DepthEstimat0r(input_channels=input_channels)
+        self.depth_estimator = DepthEstimator(input_channels=input_channels)
         
         # Stage 2: Depth-Guided Denoising
         self.depth_guided_denoising = DepthGuidedDenoising(
