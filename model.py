@@ -22,7 +22,7 @@ class ResidualBlock(nn.Module):
         out = self.relu(out)
         return out
 
-class DepthAnythingModule(nn.Module):
+class DepthEstimator(nn.Module):
     """
     Depth Estimation Module - Simplified implementation with residual connections.
     """
@@ -216,7 +216,7 @@ class DGFNet(nn.Module):
         super(DGFNet, self).__init__()
         
         # Stage 1: Depth Estimation
-        self.depth_estimator = DepthAnythingModule(input_channels=input_channels)
+        self.depth_estimator = DepthEstimat0r(input_channels=input_channels)
         
         # Stage 2: Depth-Guided Denoising
         self.depth_guided_denoising = DepthGuidedDenoising(
